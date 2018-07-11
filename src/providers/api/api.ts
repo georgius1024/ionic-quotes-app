@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ConfigProvider } from '../config/config'
 
 /*
   Generated class for the ApiProvider provider.
@@ -9,8 +10,9 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class ApiProvider {
-  apiUrl = 'https://jsonplaceholder.typicode.com';
-  constructor(public http: HttpClient) {
+  apiUrl: string;
+  constructor(public http: HttpClient, config: ConfigProvider) {
+    this.apiUrl = config.apiUrl;
     console.log('Hello ApiProvider Provider');
   }
   get(endPoint: string) {

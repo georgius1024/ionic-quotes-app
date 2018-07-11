@@ -7,23 +7,22 @@ import { ApiProvider } from '../../providers/api/api';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  users: any;
+  quote: any;
   hostName: string = window.location.href; // .hostname;
   constructor(public navCtrl: NavController, public api: ApiProvider) {
-    this.getUsers();
   }
 
-  getUsers() {
-    this.api.get('users')
+  getQuote() {
+    this.api.get('random')
       .then(data => {
-        this.users = data;
-        console.log(this.users);
+        this.quote = data;
+        console.log(this.quote);
       });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
-    this.getUsers();
+    this.getQuote();
   }
 
 }

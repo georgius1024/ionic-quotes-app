@@ -1,16 +1,27 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Home-page -- {{hostName}}
+      Home-page
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <blockquote *ngIf="quote">
+    <p>{{quote.quote}}</p>
+    <footer>
+      <cite>{{quote.author}}</cite>
+    </footer>
+  </blockquote>
+  <button ion-button full (click)="getQuote()">More quotes</button>
+
+
+  <!--
   <ion-list inset>
     <ion-item *ngFor="let user of users">
       <h2>{{user.name}}</h2>
       <p>{{user.email}}</p>
     </ion-item>
   </ion-list>
+  -->
 </ion-content>
