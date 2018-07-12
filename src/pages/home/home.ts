@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import {ConfigProvider} from '../../providers/config/config'
 
 @Component({
   selector: 'page-home',
@@ -9,11 +10,12 @@ import { ApiProvider } from '../../providers/api/api';
 export class HomePage {
   quote: any;
   hostName: string = window.location.href; // .hostname;
-  constructor(public navCtrl: NavController, public api: ApiProvider) {
+  constructor(public navCtrl: NavController, public api: ApiProvider, private config: ConfigProvider,) {
   }
 
   getQuote() {
-    this.api.get('random')
+    const url = this.config.development ? 'random' : 'quote'
+    this.api.get(url)
       .then(data => {
         this.quote = data;
         console.log(this.quote);

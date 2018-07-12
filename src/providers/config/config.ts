@@ -14,6 +14,8 @@ export class ConfigProvider {
   constructor() {
     if (this.development) {
       console.log('ConfigProvider is in development mode');
+    } else {
+      this.apiUrl = 'http://192.168.1.40:3000/api/v1'
     }
   }
 
