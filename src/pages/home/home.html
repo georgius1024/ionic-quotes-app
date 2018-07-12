@@ -7,13 +7,21 @@
 </ion-header>
 
 <ion-content padding>
-  <blockquote *ngIf="quote">
-    <p>{{quote.quote}}</p>
-    <footer>
-      <cite>{{quote.author}}</cite>
-    </footer>
-  </blockquote>
-  <button ion-button full (click)="getQuote()">More quotes</button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <blockquote *ngIf="quote">
+          <p>{{quote.quote}}</p>
+          <footer>
+            <cite>{{quote.author}}</cite>
+          </footer>
+        </blockquote>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-footer>
+    <button ion-button full (click)="getQuote()">More quotes</button>
+  </ion-footer>
 
 
   <!--

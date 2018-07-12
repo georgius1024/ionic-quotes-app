@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ApiProvider } from '../providers/api/api';
 import { ConfigProvider } from '../providers/config/config';
+import { LoadingIndicatorProvider } from '../providers/loading-indicator/loading-indicator';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ConfigProvider } from '../providers/config/config';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiProvider,
-    ConfigProvider
+    ConfigProvider,
+    LoadingIndicatorProvider
   ]
 })
 export class AppModule {}

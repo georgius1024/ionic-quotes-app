@@ -8,8 +8,9 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class ConfigProvider {
-  apiUrl: string = 'https://seinfeld-quotes.herokuapp.com'; // Withjut ending slash!!!
-  development: boolean = ['localhost', '127.0.0.1'].includes(String(window.location.href))
+  apiUrl: string = 'https://seinfeld-quotes.herokuapp.com'; // Without ending slash!!!
+  localHosts: Array<string> = ['localhost', '127.0.0.1'];
+  development: boolean = this.localHosts.indexOf(window.location.hostname) > -1
   constructor() {
     if (this.development) {
       console.log('ConfigProvider is in development mode');
